@@ -640,4 +640,5 @@ return [
      'sales_man_replaced_success'   => 'Sales Manager replaced successfully',
      'stripe_key'                   => 'Stripe Key',
      'stripe_secret'                => 'Stripe Secret',
+     'no_permission_for_action'     => 'This user does not have permission for this action',
 ];

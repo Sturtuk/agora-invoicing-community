@@ -118,7 +118,6 @@
 
         Route::get('activate/{token}', 'Auth\AuthController@activate');
 
-         Route::get('change/email', 'Auth\AuthController@updateUserEmail');
 
         /*
          * Profile Process
