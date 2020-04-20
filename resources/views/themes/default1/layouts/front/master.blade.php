@@ -378,14 +378,14 @@ if($script){
                         
                           $widgets = \App\Model\Front\Widgets::where('publish', 1)->where('type', 'footer1')->select('name','content','allow_tweets','allow_mailchimp')->first(); 
                           if ($widgets) {
-                            $tweetDetails = $widgets->allow_tweets ==1 ?  '<div id="tweets" class="twitter" >
+                              $tweetDetails = $widgets->allow_tweets ==1 ?  '<div id="tweets" class="twitter" >
                             </div>' : '';
                            }
                             $mailchimpKey = \App\Model\Common\Mailchimp\MailchimpSetting::find(1);
                             ?>
                            @if($widgets != null)
                         <div class="col-md-3">
-                           
+
                           <div class="newsletter">
                                 <h4>{{ucfirst($widgets->name)}}</h4>
                                 <p> {!! $widgets->content !!}</p>
@@ -396,14 +396,14 @@ if($script){
                                 <div class="alert alert-danger d-none" id="newsletterError"></div>
                                 @if($mailchimpKey != null && $widgets->allow_mailchimp ==1)
                                 {!! Form::open(['url'=>'mail-chimp/subcribe','method'=>'GET']) !!}
-                                <div class="input-group">
-                                    <input class="form-control" placeholder="Email Address" name="email" id="newsletterEmail" type="text">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="submit">Go!</button>
+                                <div class="input-group input-group-rounded">
+                                    <input class="form-control form-control-sm" placeholder="Email Address" name="email" id="newsletterEmail" type="text">
+                                    <span class="input-group-append">
+                                        <button class="btn btn-light text-color-dark" type="submit"><strong>Go!</strong></button>
                                     </span>
                                 </div>
                                 {!! Form::close() !!}
-                               
+
                                 @endif
                             </div>
                         </div>
@@ -420,7 +420,7 @@ if($script){
                         <div class="col-md-3">
                             <h4>{{ucfirst($widgets->name)}}</h4>
                              <p> {!! $widgets->content !!}</p>
-                               {!! $tweetDetails !!}  
+                               {!! $tweetDetails !!}
                                    <div class="alert alert-success d-none" id="newsletterSuccess">
                                     <strong>Success!</strong> You've been added to our email list.
                                 </div>
