@@ -97,11 +97,11 @@
          */
 
         Route::get('/2fa/enable', 'Google2FAController@enableTwoFactor');
-        Route::get('/2fa/disable', 'Google2FAController@disableTwoFactor');
+        Route::get('2fa/disable/{userId?}', 'Google2FAController@disableTwoFactor');
         Route::get('/2fa/validate', 'Google2FAController@getValidateToken');
         Route::get('verify-2fa', 'Google2FAController@verify2fa');
-        Route::post('2fa/loginValidate', 'Google2FAController@postLoginValidateToken');
-        Route::post('/2fa/validate', ['middleware' => 'throttle:5', 'uses' => 'Auth\AuthController@postValidateToken']);
+        Route::post('2fa/loginValidate', 'Google2FAController@postLoginValidateToken')->name('2fa/loginValidate');
+        Route::post('2fa/setupValidate', 'Google2FAController@postSetupValidateToken');
         Route::get('verify-password','Google2FAController@verifyPassword');
         /*
          * Social Media
